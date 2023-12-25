@@ -2,7 +2,7 @@ MAKEFLAGS += -j2
 
 APP_NAME = astro-with-nginx
 GIT_TAG = ${shell git tag | tail -1}
-PORT = 8888
+PORT = 8080
 
 
 default: dev-frontend
