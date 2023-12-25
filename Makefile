@@ -42,8 +42,8 @@ build-frontend:
 # build-backend:
 # 	cargo build --release
 #
-# build-docker-image:
-# 	docker build --tag ${APP_NAME}:${GIT_TAG} .
+build-docker-image:
+	docker build --tag ${APP_NAME}:${GIT_TAG} .
 #
-# run-docker:
-# 	docker run --rm -p 4000:3000 --env-file .env.local --name ${APP_NAME}-${GIT_TAG} ${APP_NAME}:${GIT_TAG}
+run-docker:
+	docker run --rm -p 4000:80 --env-file .env.local --name ${APP_NAME}-${GIT_TAG} ${APP_NAME}:${GIT_TAG}

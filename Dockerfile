@@ -12,8 +12,9 @@ FROM oven/bun:${BUN_VERSION} as bun-builder
 
 # build frontend app
 WORKDIR /app
-COPY ./frontend .
-COPY ./Makefile .
+COPY . .
+
+RUN apt update && apt install make -y
 RUN make build-frontend
 
 
@@ -25,11 +26,11 @@ ENV PORT ${PORT}
 EXPOSE $PORT
 
 # copy nginx config files to nginx container
-COPY ./nginx/nginx.conf /etc/nginx/conf.d/default.conf
-COPY ./nginx/loco_app.conf /etc/nginx/conf.d/app.conf
+# COPY ./nginx/nginx.conf /etc/nginx/conf.d/default.conf
+# COPY ./nginx/app.conf /etc/nginx/conf.d/app.conf
 
 # replace PORT with $PORT in the config file
-RUN sed -i "s/PORT/$PORT/g" /etc/nginx/conf.d/app.conf
+# RUN sed -i "s/PORT/$PORT/g" /etc/nginx/conf.d/app.conf
 
 WORKDIR /app
 
