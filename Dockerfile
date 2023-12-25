@@ -15,6 +15,7 @@ WORKDIR /app
 COPY . .
 
 RUN apt update && apt install make -y
+RUN make deps
 RUN make build-frontend
 
 
@@ -41,4 +42,4 @@ RUN chown -R nginx:nginx /app/
 
 
 
-CMD [ "nginx" ]
+# CMD [ "nginx" ]
