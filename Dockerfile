@@ -26,7 +26,7 @@ ARG PORT=8080
 ENV PORT=${PORT}
 EXPOSE ${PORT}
 
-RUN rm /etc/nginx/conf.d/default.conf
+# RUN rm /etc/nginx/conf.d/default.conf
 
 # copy nginx config files to nginx container
 COPY ./nginx/nginx.conf /etc/nginx/nginx.conf
